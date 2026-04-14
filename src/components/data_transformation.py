@@ -10,7 +10,6 @@ from src.exception import CustomException
 from src.logger import logging
 import os
 from src.utils import save_object
-
 @dataclass
 class DataTransformationConfig:
     preprocesser_obj_file_path = os.path.join('artifact','preprocessor.pkl')
@@ -56,7 +55,6 @@ class DataTransformation:
             logging.info("obtaining preprocessor object")
             preprocessor_obj=self.get_data_transformation_object()
             target_column_name='math score'
-            numerical_columns=['writing score','reading score']
             
             input_feature_train_df=train_df.drop(columns=[target_column_name],axis=1)
             target_feature_train_df=train_df[target_column_name]
